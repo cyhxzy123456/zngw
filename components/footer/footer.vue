@@ -1,0 +1,136 @@
+<template>
+    <div class="footer">
+      <div class="wrap">
+        <div class="fl">
+          <ul>
+            <li>
+              <h3>解决方案</h3>
+              <nuxt-link tag="p" v-for="(item,index) in solveList" :key="index" :to="item.link">{{item.txt}}</nuxt-link>
+            </li>
+            <li>
+              <h3><nuxt-link :to="'/service'">服务</nuxt-link></h3>
+            </li>
+            <li>
+              <h3>新闻资讯</h3>
+              <nuxt-link tag="p" v-for="(item,index) in newsList" :key="index"  :to="item.href">{{item.txt}}</nuxt-link>
+            </li>
+            <li>
+              <h3><nuxt-link :to="'/about'">关于紫牛</nuxt-link></h3>
+            </li>
+          </ul>
+        </div>
+        <div class="fr">
+          <ul>
+            <li>
+              <h3>服务热线</h3>
+              <b>028—83579300</b>
+              <img :src="qq_kf" alt="qq" class="qq">
+            </li>
+            <li class="code">
+              <img src="" alt="">
+              <span>扫一扫联系我们</span>
+            </li>
+            <li class="code">
+              <img src="" alt="">
+              <span>扫一扫关注我们</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="link">
+        <div class="wrap">
+          <span>友情链接 : </span><a href="#">股票配资系统</a>
+        </div>
+      </div>
+    </div>
+</template>
+
+<script type="text/ecmascript-6">
+export default {
+  name: 'Footer',
+  data () {
+    return {
+      nowIndex: 0,
+      qq_kf:require('../../static/images/index/qq_kf.png'),
+      solveList:[
+        {
+          txt:'股票配资交易系统',
+          link:'/case/charge'
+        },
+        {
+          txt:'股票资管系统',
+          link:'/case/manage'
+        },
+        {
+          txt:'股票点买系统',
+          link:'/case/buy'
+        },
+        {
+          txt:'MOM操盘平台',
+          link:'/case/mom'
+        }
+      ],
+      newsList:[
+        {
+          txt:'疑问解答',
+          href:'/news/solve'
+        },
+        {
+          txt:'最新热点',
+          href:'/news/hot'
+        },
+        {
+          txt:'公司资讯',
+          href:'/news/information'
+        },
+        {
+          txt:'行业资讯',
+          href:'/news/trade'
+        },
+        {
+          txt:'运营知识',
+          href:'/news/run'
+        },
+        {
+          txt:'投资方向',
+          href:'/news/invest'
+        }
+      ]
+    }
+  },
+  methods: {
+    select (index) {
+      this.nowIndex = index
+    }
+  }
+}
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+  .footer{width:100%;padding:18px 0 24px;background: #313131;overflow:hidden;
+  .wrap{overflow: hidden  }
+  h3{font-weight: bold;padding-bottom: 16px;font-size: 16px;
+  a{color:#9a9a9a}
+  }
+  h3.serv{padding-right: 88px}
+  .fl{width:50%;
+    li{font-size:16px;float:left;width:25%;color:#9a9a9a}
+    li:nth-child(2){padding-left:10px;box-sizing: border-box}
+        p{line-height: 25px;}
+  }
+  .fr{width:50%;
+
+  img{max-width:100%}
+    li{float:left;color:#9a9a9a;margin-left:34px}
+    .code img{display: block;width:150px;height:150px;background: #fff}
+    .code span{font-size: 12px;padding-top:5px;text-align: center;display: block}
+    b{font-size:25px;color:#fff;padding:0 0 18px;display: block}
+    .qq{width:100px}
+  }
+  .link{margin-top:10px;border-top:1px solid #fff;
+    a,span{color:#959595;font-size: 12px}
+  }
+  }
+
+
+</style>

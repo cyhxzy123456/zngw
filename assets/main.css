@@ -1,0 +1,33 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td ,textarea,input { margin:0; padding:0;  }
+address,cite,dfn,em,var, i {font-style:normal;}
+body {font-size: 16px;  font-family:'Microsoft Yahei','simsun','arial','tahoma';  color: #222; }
+table { border-collapse:collapse; border-spacing:0; }
+h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
+button,input,select,textarea{font-size:100%;}
+fieldset,img{border:0;}
+a { text-decoration: none; color: #666; background: none ;max-width:100%;max-height:100%}
+ul, ol ,li{ list-style: none; }
+:focus{ outline:none;}
+.clearfix{ clear: both; content: ""; display: block; overflow: hidden }
+.clear{clear: both;}
+.fl{ float: left; }
+.fr{float: right;}
+.content_main{padding-top:85px}
+.wrap{width:1200px;margin:0 auto;  }
+/*.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
+.about-enter-active, .about-leave-active {
+  transition: left .10s;
+}
+.about-enter, .about-leave-to {
+  left: -600px;
+}*/
+.last{margin-right:0!important;}
+.btn{display: block;width:246px;height:50px;border:1px solid #fff;border-radius: 10px;background: #4c9bd6;text-align: center;line-height: 50px;font-size: 20px;color:#fff;margin:0 auto}
+

@@ -1,0 +1,93 @@
+{
+  "head":"cyh",
+  "newsList":[
+    {
+      "outImg":"require('../static/images/news/new-list1.png')",
+      "title":"问题汇总1：股票配资系统在实际操作过程中会遇到哪些问题?",
+      "addTime ":"2018-9-7",
+      "outline":"文章简介：本文汇总用户实际操作中的各种问题，主要有MOM操盘平台、股票点买系统、股票配资交易系统、股票资管四个系统后台操作问题、运营问题进行解答点击查看具体内容……",
+      "id":"01",
+      "classId":"solve"
+
+    },
+    {
+      "outImg":"require('../static/images/news/new-list1.png')",
+      "title":"问题汇总2：股票配资系统在实际操作过程中会遇到哪些问题?",
+      "addTime ":"2018-9-7",
+      "outline":"文章简介：本文汇总用户实际操作中的各种问题，主要有MOM操盘平台、股票点买系统、股票配资交易系统、股票资管四个系统后台操作问题、运营问题进行解答点击查看具体内容……",
+      "id":"02",
+      "classId":"hot"
+    },
+    {
+      "outImg":"require('../static/images/news/new-list1.png')",
+      "title":"问题汇总3：股票配资系统在实际操作过程中会遇到哪些问题?",
+      "addTime ":"2018-9-7",
+      "outline":"文章简介：本文汇总用户实际操作中的各种问题，主要有MOM操盘平台、股票点买系统、股票配资交易系统、股票资管四个系统后台操作问题、运营问题进行解答点击查看具体内容……",
+      "id":"03",
+      "classId":"invest"
+    },
+    {
+      "outImg":"require('../static/images/news/new-list1.png')",
+      "title":"问题汇总4：股票配资系统在实际操作过程中会遇到哪些问题?",
+      "addTime ":"2018-9-7",
+      "outline":"文章简介：本文汇总用户实际操作中的各种问题，主要有MOM操盘平台、股票点买系统、股票配资交易系统、股票资管四个系统后台操作问题、运营问题进行解答点击查看具体内容……",
+      "id":"04",
+      "classId":"information"
+    }
+],
+  "login" :{
+    "username":"cyh",
+    "userid" : "123456"
+  },
+  "getPrice" : {
+    "amount" :678
+  },
+  "createOrder" :{
+    "orderId" : "123cyh"
+  },
+  "checkOrder" :{
+    "orderId" : "123cyh"
+  },
+  "orderList":[
+      {
+        "orderId":"cyh123",
+        "product":"数据统计",
+        "version":"高级版",
+        "period":"1年",
+        "date":"2017-6-8",
+        "buyNum":"1",
+        "amount":"100"
+      },
+      {
+        "orderId":"hfj123",
+        "product":"流量分析",
+        "version":"商铺版",
+        "period":"2年",
+        "date":"2017-6-9",
+        "buyNum":"2",
+        "amount":"200"
+      },
+      {
+        "orderId":"fgh123",
+        "product":"广告发布",
+        "version":"户外版",
+        "period":"3年",
+        "date":"2017-6-10",
+        "buyNum":"3",
+        "amount":"300"
+      },
+      {
+        "orderId":"ry123",
+        "product":"流量分析",
+        "version":"高级版",
+        "period":"4年",
+        "date":"2017-6-11",
+        "buyNum":"4",
+        "amount":"400"
+      }
+  ]
+  }
+
+
+
+
