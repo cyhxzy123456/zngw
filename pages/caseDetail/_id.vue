@@ -30,7 +30,7 @@
               <h3>案例推荐</h3>
               <div class="content">
                 <ul>
-                  <li v-for="(item ,index) in tipImg" :key="index"><img :src="item.src" alt=""></li>
+                  <li v-for="(item ,index) in tipImg" :key="index"><a :href="item.link"><img :src="item.outImg" alt=""></a></li>
                 </ul>
               </div>
             </li>
@@ -146,7 +146,7 @@
           pageCount: this.pageCount,
           id:this.aid})
           .then((res)=>{
-            console.log(res.data)
+
             this.caseList = res.data
             for(var i=0;i<this.caseList.length;i++){
               this.title = this.caseList[i].seoTitle
@@ -155,17 +155,29 @@
 
             }
           })
+      },
+      getTip(){
+          this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News',{
+            currentPage: this.currentPage,
+            pageSize: this.pageSize,
+            pageCount: this.pageCount,
+            bqName:"案例推荐"})
+            .then((res)=>{
+             /* console.log(res.data.link)*/
+              this.tipImg=res.data
+            })
       }
     },
-    watch: {
+   /* watch: {
       "$route": function(){
         //路由变化会触发
         this.getDetail()
       }
-    },
+    },*/
     created(){
       /* this.getData()*/
       this.getDetail()
+      this.getTip()
     }
   }
 </script>

@@ -28,6 +28,9 @@
       caseSlides:{
         type:Array,
       },
+      slides:{
+        type:Array,
+      },
       inv:{
         type:Number,
         default:3000

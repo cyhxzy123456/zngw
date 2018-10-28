@@ -39,13 +39,14 @@
       </div>
       <div class="link">
         <div class="wrap">
-          <span>友情链接 : </span><a href="#">股票配资系统</a>
+          <span>友情链接 : </span><span v-for="(item,index) in link" :key="index"><a :href="item.link">{{item.title}}</a></span>
         </div>
       </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import axios from '../../plugins/axios'
 export default {
   name: 'Footer',
   data () {
@@ -95,13 +96,32 @@ export default {
           txt:'投资方向',
           href:'/news/invest'
         }
-      ]
+      ],
+      currentPage: 1,
+      pageSize: 5,
+      pageCount: 0,
+      link:[]
     }
   },
   methods: {
     select (index) {
       this.nowIndex = index
+    },
+    getLink(){
+        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/FriendshipLink',{currentPage: 1,
+          pageSize: 5,
+          pageCount: 0,})
+          .then((res)=>{
+            this.link = res.data
+            /*console.log(res.data)*/
+          })
+          .catch((err)=>{
+            console.log(msg)
+          })
     }
+  },
+  created(){
+      this.getLink()
   }
 }
 </script>
@@ -128,7 +148,7 @@ export default {
     .qq{width:100px}
   }
   .link{margin-top:10px;border-top:1px solid #fff;
-    a,span{color:#959595;font-size: 12px}
+    a,span{color:#959595;font-size: 12px;padding-right: 5px;}
   }
   }
 

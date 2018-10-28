@@ -51,7 +51,7 @@
             if (res.data.length > 0 ) {
               this.caseList=res.data
               this.pageCount= res.total
-              console.log(this.pageCount)
+              /*console.log(this.pageCount)*/
             } else {
               this.caseList=[]
               this.pageCount= 0
