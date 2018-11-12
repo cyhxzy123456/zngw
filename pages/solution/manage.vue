@@ -16,7 +16,6 @@
     </solve-detail>
   </div>
 </template>
-
 <script type="text/ecmascript-6">
   import solveDetail from '../../components/solve-detail.vue'
   export default {
@@ -31,9 +30,22 @@
             src: require('../../static/images/case/case_zgxt.png')
           },
 
+        ],
+        title:"股票资管系统_股票资管软件开发_紫牛软件",
+        keyWords:"股票资管系统，股票资管软件",
+        description:"紫牛股票资管系统栏目，主要展示了紫牛软件所开发的股票资管软件产品的优势、案例、券商、平台版本、架构环境等。"
+
+      }
+    },
+    head () {
+      return {
+        title: this.title,
+        meta: [
+          { hid: 'keyWords',name:'keyWords', content:this.keyWords},
+          { hid: 'description',name:'description', content:this.description}
         ]
       }
-    }
+    },
   }
 </script>
 

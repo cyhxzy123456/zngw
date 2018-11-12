@@ -3,7 +3,7 @@
     <div class="content">
       <!-- <h2>News-Content{{$route.params.id}}</h2>-->
       <ul >
-        <nuxt-link tag="li"  v-for="(item,index) in caseList" :key="index" :to="'/caseDetail/'+item.id" v-show="item.classId===$route.params.id">
+        <nuxt-link tag="li"  v-for="(item,index) in caseList" :key="index" :to="'/caseDetail/'+item.id" >
           <div class="fl"><img :src="item.outImg" alt=""></div>
           <div class="fr">
             <h3>案例简介:</h3>
@@ -42,7 +42,7 @@
     methods:{
       getAndDraw(){
         console.log(this.id)
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News',{
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           pageCount: this.pageCount,
@@ -51,7 +51,7 @@
             if (res.data.length > 0 ) {
               this.caseList=res.data
               this.pageCount= res.total
-              /*console.log(this.pageCount)*/
+
             } else {
               this.caseList=[]
               this.pageCount= 0
@@ -74,7 +74,7 @@
       this.currentPage = val;
 
       this.getAndDraw();//确定当前页面后刷新页面
-      console.log(this.currentPage)
+
 
     },
     watch: {

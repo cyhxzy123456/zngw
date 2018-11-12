@@ -33,7 +33,7 @@
   h3{padding-bottom: 22px;border-bottom: 1px solid #ccc;font-size: 20px;color:#666;margin-bottom:20px}
   p{line-height: 30px}
   p:hover{color:#4C9BD6}
-span.title{float:left;width:218px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+span.title{float:left;width:218px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;text-align: left}
 span.date{float:right;    width: 88px;
   overflow: hidden;
   white-space: nowrap;}

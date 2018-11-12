@@ -15,7 +15,6 @@
     </solve-detail>
   </div>
 </template>
-
 <script type="text/ecmascript-6">
   import solveDetail from '../../components/solve-detail.vue'
   export default {
@@ -29,19 +28,19 @@
           //charge
 
           {
-            txt: '牛管家 https://www.ngj518.com/',
+            txt: '牛管家 www.ngj518.com',
             src: require('../../static/images/index/case_ngj.png')
           },
           {
-            txt: '涨声操盘 http://www.zhangsheng666.com',
+            txt: '涨声操盘 www.zhangsheng666.com',
             src: require('../../static/images/index/case_zscp.png')
           },
           {
-            txt: '子牛在线 http://www.zn1788.com',
+            txt: '子牛在线 www.zn1788.com',
             src: require('../../static/images/index/case_znzx.png')
           },
           {
-            txt: '股昇网 https://www.gushengwang.com/',
+            txt: '股昇网 www.gushengwang.com/',
             src: require('../../static/images/index/case_gsw.png')
           },
           {
@@ -49,12 +48,25 @@
             src:require( '../../static/images/index/case_gltx.png')
           },
           {
-            txt: '交易秀 https://www.jiaoyixiu.com/',
+            txt: '交易秀 www.jiaoyixiu.com/',
             src:require( '../../static/images/index/case_jyx.png')
           },
+        ],
+        title:"股票配资系统_股票配资交易软件开发_紫牛软件",
+        keyWords:"股票配资系统，股票配资软件",
+        description:"紫牛股票配资系统栏目，主要展示了紫牛软件所开发的股票配资系统产品的优势、案例、券商、平台版本、架构环境等。"
+
+      }
+    },
+    head () {
+      return {
+        title: this.title,
+        meta: [
+          { hid: 'keyWords',name:'keyWords', content:this.keyWords},
+          { hid: 'description',name:'description', content:this.description}
         ]
       }
-    }
+    },
   }
 </script>
 

@@ -5,8 +5,10 @@
         <li class="list" v-for="(list, index) in caseSlides" v-show="index===mark" :key="index">
           <ul>
             <li class="item" v-for="(item, index) in list" :key="index" :class="{last:(index+1)%2===0}">
-              <img :src="item.src" alt="">
-              <span>{{item.txt}}</span>
+              <nuxt-link :to="item.href">
+                <img :src="item.src" alt="">
+                <span>{{item.txt}}</span>
+              </nuxt-link>
             </li>
           </ul>
         </li>
@@ -44,50 +46,50 @@
       }
     },
     methods: {
-      autoPlay () {
-        this.mark++;
-        if (this.mark === 4) {
-          this.mark = 0
-        }
-      },
-      play () {
-        this.timer = setInterval(this.autoPlay, this.inv)
-      },
-      change (i) {
-        this.mark = i
-      },
-      stop () {
-        clearInterval(this.timer)
-      },
-      move () {
-        this.timer = setInterval(this.autoPlay, this.inv)
-      },
-      prev(){
-        console.log(this.mark)
-        if (this.mark === 0) {
-          this.mark= this.caseSlides.length - 1
-        }
-        else {
-          this.mark--
-        }
+     autoPlay () {
+     this.mark++;
+     if (this.mark === 4) {
+     this.mark = 0
+     }
+     },
+     play () {
+     this.timer = setInterval(this.autoPlay, this.inv)
+     },
+     change (i) {
+     this.mark = i
+     },
+     stop () {
+     clearInterval(this.timer)
+     },
+     move () {
+     this.timer = setInterval(this.autoPlay, this.inv)
+     },
+     prev(){
+     console.log(this.mark)
+     if (this.mark === 0) {
+     this.mark= this.caseSlides.length - 1
+     }
+     else {
+     this.mark--
+     }
 
-      },
-      next(){
+     },
+     next(){
 
-       console.log(this.mark)
-        if (this.mark === this.caseSlides.length - 1) {
-          this.mark = 0
-        }
-        else{
-           this.mark++
-        }
+     console.log(this.mark)
+     if (this.mark === this.caseSlides.length - 1) {
+     this.mark = 0
+     }
+     else{
+     this.mark++
+     }
 
-      }
-    },
-    created () {
-      this.play()
-    },
-  /*  computed:{
+     }
+     },
+     created () {
+     this.play()
+     },
+    computed:{
       prevIndex () {
         if (this.nowIndex === 0) {
           return this.caseSlides.length - 1
@@ -104,7 +106,7 @@
           return this.nowIndex + 1
         }
       }
-    },*/
+    },
 
   }
 </script>
@@ -113,7 +115,6 @@
   .slide {
     width: 100%;
     margin: 0 auto;
-    overflow: hidden;
     position: relative;
   }
   .slideshow {
@@ -121,14 +122,14 @@
     margin: 0 auto;
     position: relative;
     height: 500px;
+    overflow: hidden;
   }
   li.list {
     width: 100%;
     position: absolute;
-    padding-left: 15px;
   }
-  ul{overflow: hidden;margin:0 auto;padding-left:30px}
-  li.item{position:relative;float:left;margin-right:30px;max-width:44%;box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+  ul{overflow: hidden;margin:0 auto;}
+  li.item{position:relative;float:left;margin-right:30px;max-width:48.7%;box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
   img{display: inline-block;max-width:100%;height:500px;}
   span{font-size: 16px;position: absolute;bottom: 0;left:0;text-align:center; color:#fff;height:60px;line-height:60px;background: rgba(0,0,0,0.5);width:100%}
   }
@@ -137,7 +138,7 @@
     max-width: 100%;
     height: 500px;
   }
-  .bar{position: absolute;top:50%;width:100%}
+  .bar{position: absolute;top:50%;width:114%;left:-83px;}
   .prev{display: block;width:54px;height:54px;background: url("../static/images/index/prev.png") no-repeat;border-radius: 50%;text-align: center;left:-65px;top:50%;margin-top:-27px;float:left}
   .next{display: block;width:54px;height:54px;background: url("../static/images/index/next.png") no-repeat;border-radius: 50%;text-align: center;right:-65px;top:50%;margin-top:-27px;float:right}
   .active {

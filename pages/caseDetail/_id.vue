@@ -30,7 +30,7 @@
               <h3>案例推荐</h3>
               <div class="content">
                 <ul>
-                  <li v-for="(item ,index) in tipImg" :key="index"><a :href="item.link"><img :src="item.outImg" alt=""></a></li>
+                  <nuxt-link tag="li" v-for="(item ,index) in tipImg" :key="index" :to="item.id"><img :src="item.outImg" alt=""></nuxt-link>
                 </ul>
               </div>
             </li>
@@ -38,13 +38,15 @@
         </div>
         <div class="fr" v-html="item.content">
           {{item.content}}
-          <div class="page">
-            <nuxt-link tag="span" :to="prevUrl">上一个案例</nuxt-link>
-            <nuxt-link tag="span" :to="backUrl">返回列表</nuxt-link>
-            <nuxt-link tag="span" :to="nextUrl">下一个案例</nuxt-link>
-          </div>
+
         </div>
       </div>
+      <div  class="page">
+        <span >上一个案例</span>
+        <span >返回列表</span>
+        <span >下一个案例</span>
+      </div>
+
     </div>
   </div>
 </template>
@@ -52,13 +54,16 @@
 <script type="text/ecmascript-6">
   import BannerSmall from '../../components/banner-small.vue'
   import axios from '../../plugins/axios.js'
+  import NuxtLink from "nuxt/lib/app/components/nuxt-link";
   export default {
-    components: {BannerSmall},
+    components: {
+      NuxtLink,
+      BannerSmall},
     data(){
       return{
         title: '',
-        keyWords:'',
-        description:'',
+        keyWords:'cs',
+        description:'cs',
         banner:{
           h3:'案例详情',
           p:'案例详情包含产品背景介绍、功能介绍、案例页面查看案例名称等 ',
@@ -112,10 +117,10 @@
             src:require('../static/images/index/case_znzx.png')
           }*/
         ],
-        caseImgBig: require('../../static/images/case/case_njs_big.png'),
         prevUrl: '/case',
         backUrl: '/case',
-        nextUrl: '/case/charge'
+        nextUrl: '/case/charge',
+        bqId:this.$route.params.id
 
       }
     },
@@ -130,23 +135,15 @@
     },
 
     methods:{
-      /*getData(){
-       console.log(this.id)
-       this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/FriendshipLink',this.newsData)
-       .then((res)=>{
-       console.log(res.data)
-       /!* this.newsList = res.data*!/
-       })
-       },*/
+
       getDetail(){
         console.log(this.id)
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News',{
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           pageCount: this.pageCount,
           id:this.aid})
           .then((res)=>{
-
             this.caseList = res.data
             for(var i=0;i<this.caseList.length;i++){
               this.title = this.caseList[i].seoTitle
@@ -157,23 +154,37 @@
           })
       },
       getTip(){
-          this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News',{
+          this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
             currentPage: this.currentPage,
             pageSize: this.pageSize,
             pageCount: this.pageCount,
             bqName:"案例推荐"})
             .then((res)=>{
-             /* console.log(res.data.link)*/
+
               this.tipImg=res.data
+
             })
       }
     },
-   /* watch: {
-      "$route": function(){
+    watch: {
+      "$route": function(id){
         //路由变化会触发
-        this.getDetail()
+        this.bqId=this.$route.params.id
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
+          pageCount: this.pageCount,
+          bqName:"案例推荐",
+          id:this.bqId
+        })
+          .then((res)=>{
+
+            this.caseList = res.data
+
+          })
+        this.getTip()
       }
-    },*/
+    },
     created(){
       /* this.getData()*/
       this.getDetail()
@@ -185,11 +196,11 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   .font6{color:#666!important;}
   .case-detail{
-  .inner{padding-top:42px}
+  .inner{padding-top:42px;overflow: hidden;}
   .fl{width:290px;
   li{background: #eee;margin-bottom: 20px;font-size: 16px;
   .content{padding:15px;box-sizing: border-box;}
-  h3{height:56px;line-height: 56px;color:#fff;background: #4c9bd6;text-align: center;font-size: 20px}
+  h3{height:56px;line-height: 56px;color:#fff;background: #4c9bd6;padding-left:15px;font-size: 20px}
   p{line-height: 30px;font-size: 16px;color:#999}
   }
   li.other{
@@ -203,8 +214,11 @@
   }
   }
   .fr{
-  .page span{width:162px;height: 60px;line-height: 60px;border:1px solid #ccc;text-align: center;display: inline-block;margin:36px 5px 30px 0;font-size: 16px;color:#010101}
+   }
+  }
+  .page{text-align: center;
+  span{width:162px;height: 60px;line-height: 60px;border:1px solid #ccc;text-align: center;display: inline-block;margin:36px 5px 30px 0;font-size: 16px;color:#010101}
+  }
   .page span:hover{border-color:#4C9BD6;color:#4C9BD6}
-  }
-  }
+
 </style>

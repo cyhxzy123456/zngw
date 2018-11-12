@@ -1,5 +1,6 @@
 <template>
   <div class="slide" v-on:mouseover="stop()" v-on:mouseout="move()">
+
     <div class="slideshow">
       <transition-group tag="ul" name="image">
         <li v-for="(img, index) in slides" v-show="index===mark" :key="index">

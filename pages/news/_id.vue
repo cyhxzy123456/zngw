@@ -3,7 +3,7 @@
    <!-- <h2>News-Content{{classId}}</h2>-->
     <div class="news-list">
       <ul>
-        <nuxt-link  tag="li"  v-for="(item,index) in newsList" :key="index"  :to="'/newsDetail/'+item.id">
+        <nuxt-link  tag="li"  v-for="(item,index) in newsList" :key="index"  :to="'/newsDetail/'+item.id" > <!--:to="':to="{ path:'/newsDetail',params: { id: item.id}}"-->
           <div class="fl"><img :src="item.outImg" alt=""></div>
           <div class="fr">
             <div class="top">
@@ -63,7 +63,7 @@
       },*/
 
       getAndDraw(val){
-        this.$axios.post(`http://apiweb.ziniusoft.com/Main/Api/News`,
+        this.$axios.post(`https://apiweb.ziniusoft.com/Main/Api/News`,
           {
           currentPage: this.currentPage,
           pageSize: this.pageSize,
@@ -71,21 +71,21 @@
           classId:this.classId}
           )
           .then((res) => {
-           /* console.log(res.data)*/
+
             /*this.newsList=res.data*/
               if (res.data.length > 0 ) {
                 this.newsList=res.data
                 this.pageCount= res.total
-                /*console.log(this.pageCount)*/
+
               } else {
                 this.newsList=[]
                 this.pageCount= 0
               }
             })
 
-          .catch((e) => {
+         /* .catch((e) => {
             error({statusCode: 404, message: '获取用户失败'})
-          })
+          })*/
 
       },
       handleSizeChange(val) {
@@ -102,8 +102,6 @@
         this.currentPage = val;
 
         this.getAndDraw();//确定当前页面后刷新页面
-       /* console.log(this.currentPage)*/
-
       },
     },
     watch: {

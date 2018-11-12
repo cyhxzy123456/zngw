@@ -5,18 +5,18 @@
     <img src="../../static/images/index/logo.png" alt="">
   </div>
   <ul class="header-list fr">
-    <nuxt-link tag="li" active-class="active" to="/">首页</nuxt-link>
-    <nuxt-link tag="li" active-class="active" to="/solutions" @mouseover.native="show()" @mouseout.native="hide()">解决方案</nuxt-link>
-        <li class="slide-down" v-show="showSlide"  @mouseover="show()" @mouseout="hide()">
-          <nuxt-link tag="p" active-class="active" to="/solution/charge">股票配资系统</nuxt-link>
-          <nuxt-link tag="p" active-class="active" to="/solution/manage">股票资管系统</nuxt-link>
-          <nuxt-link tag="p" active-class="active" to="/solution/buy">股票点买系统</nuxt-link>
-          <nuxt-link tag="p" active-class="active" to="/solution/mom">MOM操盘系统</nuxt-link>
-        </li>
-    <nuxt-link tag="li" active-class="active" to="/case/charge">案例</nuxt-link>
-    <nuxt-link tag="li" active-class="active" to="/service">服务</nuxt-link>
-    <nuxt-link tag="li" active-class="active" to="/news/solve">新闻</nuxt-link>
-    <nuxt-link tag="li" active-class="active" to="/about">关于紫牛</nuxt-link>
+    <nuxt-link tag="li" exact-active-class="active" to="/">首页</nuxt-link>
+    <nuxt-link tag="li" exact-active-class="active" to="/solutions" @mouseover.native="show()" @mouseout.native="hide()">解决方案</nuxt-link>
+    <nuxt-link tag="li" exact-active-class="active" to="/case/charge">案例</nuxt-link>
+    <nuxt-link tag="li" exact-active-class="active" to="/service">服务</nuxt-link>
+    <nuxt-link tag="li" exact-active-class="active" to="/news/solve">新闻</nuxt-link>
+    <nuxt-link tag="li" exact-active-class="active" to="/about">关于紫牛</nuxt-link>
+    <li class="slide-down" v-show="showSlide"  @mouseover="show()" @mouseout="hide()">
+      <nuxt-link tag="p" exact-active-class="active" to="/solution/charge">股票配资系统</nuxt-link>
+      <nuxt-link tag="p" exact-active-class="active" to="/solution/manage">股票资管系统</nuxt-link>
+      <nuxt-link tag="p" exact-active-class="active" to="/solution/buy">股票点买系统</nuxt-link>
+      <nuxt-link tag="p" exact-active-class="active" to="/solution/mom">MOM操盘系统</nuxt-link>
+    </li>
   </ul>
   </div>
 </div>
@@ -26,7 +26,8 @@
 export default{
     data(){
         return{
-            showSlide:false
+            showSlide:false,
+
         }
     },
   methods:{

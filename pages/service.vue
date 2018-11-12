@@ -185,9 +185,21 @@ data() {
           txtH3:'运营维护服务',
           txtP:'服务系统使用培训、系统数据库自动备份、日常运营咨询解答服务，问题诊断，BUG修复服务。'
         }
+      ],
+      title:"股票配资软件_紫牛服务内容",
+      keyWords:"股票配资服务",
+      description:"紫牛服务栏目页，主要包含系统建设、风险控制、资源整合、运营指导、技术支持等服务展示。"
+    }
+},
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        { hid: 'keyWords',name:'keyWords', content:this.keyWords},
+        { hid: 'description',name:'description', content:this.description}
       ]
     }
-}
+  },
 }
 </script>
 

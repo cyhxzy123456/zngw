@@ -240,7 +240,7 @@
   .inner{overflow: hidden;height: 260px}
     li{float:left;width:30%;height:256px;position: relative;margin:0 30px 30px 5px;box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
       img{display: block;width:100%;height:100%;}
-      span{position: absolute;bottom: 0;width:100%;height:32px;;line-height: 32px;color:#fff;text-align: center;background: rgba(0,0,0,0.5)}
+      span{position: absolute;bottom: 0;width:100%;height:32px;;line-height: 32px;color:#fff;text-align: center;background: rgba(0,0,0,0.6)}
     }
   }
   .part3{

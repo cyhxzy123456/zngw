@@ -63,11 +63,11 @@
           <div class="inner">
             <div class="contact-box">
               <h3>联系方式</h3>
-              <p>地址：成都市武侯区桐梓林北路2号凯莱帝景5-A</p>
+              <p>地址：成都市武侯区桐梓林北路2号</p>
               <div class="code">
-                <img src="" alt="" class="fl" >
+                <img :src="contactImg" alt="" class="fl" >
                 <p class="fr">
-                  <span>QQ：576847565 </span>
+                  <span>QQ:576847565</span>
                   <span>电话：028-8357-9300</span>
                 </p>
               </div>
@@ -79,7 +79,6 @@
       </div>
     </div>
 </template>
-
 <script type="text/ecmascript-6">
   import BannerSmall from '../components/banner-small.vue'
   import Tit from '../components/tit.vue'
@@ -123,8 +122,22 @@
                 p:'紫牛软件业务介绍、发展历程描述企业理念、联系方式',
                 url:require('../static/images/about/about-banner.png')
               },
+              contactImg:require('../static/images/about/contact.jpg'),
+              title:"关于紫牛_紫牛软件",
+              keyWords:"紫牛软件介绍",
+              description:"紫牛软件成立于2010年，为金融企业提供股票配资系统开发服务，立志做中国领先的股票配资系统服务商。"
+
             }
+        },
+      head () {
+        return {
+          title: this.title,
+          meta: [
+            { hid: 'keyWords',name:'keyWords', content:this.keyWords},
+            { hid: 'description',name:'description', content:this.description}
+          ]
         }
+      },
     }
 </script>
 

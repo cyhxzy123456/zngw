@@ -57,19 +57,14 @@
     data(){
       return{
         newsDetail:[],
-        information:[
-
-        ],
-        hot:[
-
-        ],
-        recommend:[
-
-        ],
+        information:[],
+        hot:[],
+        recommend:[],
         currentPage: 1,
         pageSize: 5,
         pageCount: 0,
         aid: this.$route.params.id,
+        bqId: this.$route.params.id,
         title: '',
         keyWords:'',
         description:'',
@@ -88,13 +83,13 @@
       /*正文*/
       getData(){
        /* console.log(this.id)*/
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News', {
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           pageCount: this.pageCount,
           id:this.aid})
           .then((res)=>{
-            /*console.log(res.data)*/
+
             this.newsDetail = res.data
             for(var i=0;i<this.newsDetail.length;i++){
               this.title = this.newsDetail[i].seoTitle
@@ -105,18 +100,24 @@
       },
       /*最新资讯*/
       getInformation(){
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News', {
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           pageCount: this.pageCount,
         })
           .then((res)=>{
-            this.information = res.data
+            const arr = res.data
+            for(var i=0;i<arr.length;i++){
+                if (arr[i].bqName=='案例推荐')
+                  arr.splice(i,1);
+            }
+            console.log(arr)
+            this.information = arr
           })
   },
       /*热门知识*/
       getHot(){
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News', {
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           pageCount: this.pageCount,
@@ -128,7 +129,7 @@
       },
       /*相关推荐*/
       getRecommend(){
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/News', {
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
           currentPage: this.currentPage,
           pageSize: this.pageSize,
           pageCount: this.pageCount,
@@ -139,7 +140,25 @@
           })
       },
     },
+    watch: {
+      "$route": function(id){
+        //路由变化会触发
 
+        this.bqId=this.$route.params.id
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
+          pageCount: this.pageCount,
+          id:this.bqId
+        })
+          .then((res)=>{
+            this.newsDetail = res.data
+          })
+        this.getInformation()
+        this. getHot()
+        this.getRecommend()
+      }
+    },
     created(){
       this.getData()
       this.getInformation()
@@ -153,9 +172,9 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   .detail-cont{margin-top:48px;padding:30px 24px;border:1px solid #eee;overflow: hidden;font-size: 16px;color:#999;
   .inner{overflow: hidden}
-  .date{float:right}
+  .date{float:right;margin-top:5px}
   p{line-height: 30px;}
-  .tit{font-size: 20px;color:#666}
+  .tit{font-size: 20px;color:#666;width: 540px;  display: inline-block;}
   .fl{width:67%;margin-right:22px;
   .txt{line-height: 30px;text-indent: 2em}
   .head{padding-bottom: 20px;border-bottom: 1px solid #ccc;margin-bottom: 20px}

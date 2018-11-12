@@ -8,7 +8,7 @@
         <div class="case-box">
           <div class="nav">
             <ul>
-              <nuxt-link tag="li"  v-for="(item,index) in navList" :key="index"  :to="item.id" :active-class="active">{{item.className}}</nuxt-link>
+              <nuxt-link tag="li"  v-for="(item,index) in navList" :key="index"  :to="item.id" active-class="active">{{item.className}}</nuxt-link>
              <!-- <nuxt-link tag="li" v-for="(item,index) in navList" :key="index"  :to="item.href">
                {{item.navTxt}}
               </nuxt-link>-->
@@ -78,7 +78,7 @@ export default {
   },
   methods:{
     getData(){
-      this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data)
+      this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data)
         .then((res)=>{
           console.log(res.data)
           this.navList = res.data.slice(-4)
@@ -95,9 +95,9 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .case-box{padding-top:25px;overflow: hidden;
-  .nav {overflow:hidden;border-bottom: 1px solid #eee;
-      li{float:left ;margin-right: 30px;height:55px;line-height: 55px;font-size: 20px;color:#666}
-      li.active{color:#4c9bd6}
+  .nav {overflow:hidden;border-bottom: 1px solid #eee;margin-bottom:28px;
+      li{float:left ;margin-right: 30px;height:55px;line-height: 55px;font-size: 20px;color:#666;padding:0 15px}
+      li.active{color: #4c9bd6; }
   }
 
 }

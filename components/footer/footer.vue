@@ -23,15 +23,15 @@
           <ul>
             <li>
               <h3>服务热线</h3>
-              <b>028—83579300</b>
-              <img :src="qq_kf" alt="qq" class="qq">
+              <b>028-83579300</b>
+              <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank"><img :src="qq_kf" alt="qq" class="qq"></a>
             </li>
             <li class="code">
-              <img src="" alt="">
+              <img :src="contactImg" alt="">
               <span>扫一扫联系我们</span>
             </li>
             <li class="code">
-              <img src="" alt="">
+              <img :src="gzhImg" alt="">
               <span>扫一扫关注我们</span>
             </li>
           </ul>
@@ -56,19 +56,19 @@ export default {
       solveList:[
         {
           txt:'股票配资交易系统',
-          link:'/case/charge'
+          link:'/solution/charge'
         },
         {
           txt:'股票资管系统',
-          link:'/case/manage'
+          link:'/solution/manage'
         },
         {
           txt:'股票点买系统',
-          link:'/case/buy'
+          link:'/solution/buy'
         },
         {
           txt:'MOM操盘平台',
-          link:'/case/mom'
+          link:'/solution/mom'
         }
       ],
       newsList:[
@@ -100,7 +100,9 @@ export default {
       currentPage: 1,
       pageSize: 5,
       pageCount: 0,
-      link:[]
+      link:[],
+      contactImg:require('../../static/images/about/contact.jpg'),
+      gzhImg:require('../../static/images/about/gzh.jpg')
     }
   },
   methods: {
@@ -108,7 +110,7 @@ export default {
       this.nowIndex = index
     },
     getLink(){
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/FriendshipLink',{currentPage: 1,
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/FriendshipLink',{currentPage: 1,
           pageSize: 5,
           pageCount: 0,})
           .then((res)=>{
@@ -129,14 +131,14 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .footer{width:100%;padding:18px 0 24px;background: #313131;overflow:hidden;
   .wrap{overflow: hidden  }
-  h3{font-weight: bold;padding-bottom: 16px;font-size: 16px;
+  h3{font-weight: bold;padding-bottom: 16px;font-size: 17px;
   a{color:#9a9a9a}
   }
   h3.serv{padding-right: 88px}
   .fl{width:50%;
     li{font-size:16px;float:left;width:25%;color:#9a9a9a}
     li:nth-child(2){padding-left:10px;box-sizing: border-box}
-        p{line-height: 25px;}
+        p{line-height: 25px;cursor: pointer}
   }
   .fr{width:50%;
 
@@ -145,7 +147,7 @@ export default {
     .code img{display: block;width:150px;height:150px;background: #fff}
     .code span{font-size: 12px;padding-top:5px;text-align: center;display: block}
     b{font-size:25px;color:#fff;padding:0 0 18px;display: block}
-    .qq{width:100px}
+    .qq{width:198px}
   }
   .link{margin-top:10px;border-top:1px solid #fff;
     a,span{color:#959595;font-size: 12px;padding-right: 5px;}

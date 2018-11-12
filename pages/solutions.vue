@@ -6,7 +6,7 @@
     </banner-small>
     <div class=" part" v-for="(item,index) in solveList" :key="index" :class="[{grey:(index+1)%2===0},{end:(index+1)%4===0}]" >
       <div class="wrap">
-        <div class="inner" v-bind:style="{ 'background-image': 'url(' + item.src + ')','background-repeat':'no-repeat','background-size':'35%' }">
+        <div class="inner" v-bind:style="{ 'background-image': 'url(' + item.src + ')','background-repeat':'no-repeat','background-size':'35%','background-position-y': 'center' }">
           <div class="list" :class="{fr:(index+1)%2!==0}" >
             <ul>
               <li >
@@ -83,9 +83,21 @@
               src: require('../static/images/solve/solve_04.png'),
               href:'/solution/mom'
             }
-          ]
+          ],
+          title:"股票配资系统_股票配资行业解决方案_紫牛软件",
+          keyWords:"股票配资系统，股票配资解决方案",
+          description:"紫牛软件专注股票配资系统开发，为开展股票配资业务的金融企业提供配资解决方案，帮助企业更好的开展业务。"
         }
-    }
+    },
+    head () {
+      return {
+        title: this.title,
+        meta: [
+          { hid: 'keyWords',name:'keyWords', content:this.keyWords},
+          { hid: 'description',name:'description', content:this.description}
+        ]
+      }
+    },
 }
 </script>
 

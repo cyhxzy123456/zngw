@@ -6,7 +6,7 @@
     <div class="wrap">
       <div class="news-nav">
         <ul>
-          <nuxt-link tag="li"  v-for="(item,index) in newsNav" :key="index"  :to="item.id" >{{item.className}}</nuxt-link>
+          <nuxt-link tag="li"  v-for="(item,index) in newsNav" :key="index"  :to="item.id" active-class="active">{{item.className}}</nuxt-link>
         </ul>
       </div>
 
@@ -49,13 +49,17 @@
      let { data } = await axios.post(`http://apiweb.ziniusoft.com/Main/Api/NewsClass`)
      return { newsNav: data}
      }*/
-
+ /*   async asyncData () {
+      return this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data).then(res => {
+        this.newsNav = res.data.slice(0,6)
+      })
+    },*/
     methods:{
 
       getData(){
-        this.$axios.post('http://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data)
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data)
           .then((res)=>{
-            /*console.log(res.data)*/
+
             this.newsNav = res.data.slice(0,6)
           })
       },
@@ -71,6 +75,6 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   .news-nav{margin:50px 0 32px;overflow: hidden;
   li{width:132px;height:55px;line-height: 55px;float:left;background: #eee;color:#666;font-size:20px;text-align: center;cursor: pointer}
-  /* li.active{color:#fff;background: #4c9bd6;}*/
+   li.active{color:#fff;background: #4c9bd6;}
   }
 </style>
