@@ -5,23 +5,22 @@
       <a href="#" class="apply" slot="banner-bth-yellow">立即申请</a>
     </banner-small>
     <div class="wrap">
-      <div class="inner" v-for="(item,index) in caseList" :key="index"  v-show="item.id===$route.params.id">
-        <div class="fl">
+      <div class="inner" >
+        <div class="fl"  >
           <ul>
             <li>
-              <h3>{{item.title}}</h3>
+              <h3>{{caseTitle}}</h3>
               <div class="content">
-                <p class="net font6" >演示网址：<span>{{net}}</span></p>
                 <div class="detail">
                   <p class="font6">案例详情：</p>
-                  <p>{{item.outline}}</p>
+                  <p>{{caseOutline}}</p>
                 </div>
               </div>
             </li>
             <li class="other">
               <h3>其他系统推荐</h3>
               <div class="content">
-                <nuxt-link tag="p" v-for="(item,index) in navList" :key="index" :active-class="active" :to="item.href">
+                <nuxt-link tag="p" v-for="(item,index) in navList" :key="index" active-class="active" :to="item.href">
                   {{item.navTxt}}
                 </nuxt-link>
               </div>
@@ -30,21 +29,23 @@
               <h3>案例推荐</h3>
               <div class="content">
                 <ul>
-                  <nuxt-link tag="li" v-for="(item ,index) in tipImg" :key="index" :to="item.id"><img :src="item.outImg" alt=""></nuxt-link>
+                  <nuxt-link tag="li" v-for="(item ,index) in tipImg" :key="index" :to="item.id"><img :src="item.outImg" alt=""/></nuxt-link>
                 </ul>
               </div>
             </li>
           </ul>
         </div>
-        <div class="fr" v-html="item.content">
+        <div class="fr" v-html="item.content" v-for="(item,index) in caseList" :key="index" >
           {{item.content}}
 
         </div>
       </div>
-      <div  class="page">
-        <span >上一个案例</span>
-        <span >返回列表</span>
-        <span >下一个案例</span>
+      <div class="page" v-for="(item,index) in caseList" :key="index" >
+        <!--  <span @click="prevPage(val)"></span>-->
+        <span tag="span"  @click="last()">上一个案例</span>
+        <nuxt-link tag="span" :to="{path:'/case/'+item.classId}">返回列表</nuxt-link>
+        <span tag="span"  @click="next()">下一个案例</span>
+
       </div>
 
     </div>
@@ -120,7 +121,9 @@
         prevUrl: '/case',
         backUrl: '/case',
         nextUrl: '/case/charge',
-        bqId:this.$route.params.id
+        bqId:this.$route.params.id,
+        caseTitle:'',
+        caseOutline:'',
 
       }
     },
@@ -135,9 +138,7 @@
     },
 
     methods:{
-
       getDetail(){
-        console.log(this.id)
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
           currentPage: this.currentPage,
           pageSize: this.pageSize,
@@ -145,10 +146,12 @@
           id:this.aid})
           .then((res)=>{
             this.caseList = res.data
-            for(var i=0;i<this.caseList.length;i++){
+            for(let i=0;i<this.caseList.length;i++){
               this.title = this.caseList[i].seoTitle
               this.keyWords = this.caseList[i].seoKeyWords
               this.description = this.caseList[i].seoDescription
+              this.caseTitle = this.caseList[i].title
+              this.caseOutline = this.caseList[i].outline
 
             }
           })
@@ -160,11 +163,27 @@
             pageCount: this.pageCount,
             bqName:"案例推荐"})
             .then((res)=>{
-
               this.tipImg=res.data
 
             })
-      }
+      },
+      change(){
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsDetails',{id:this.aid})
+          .then((res)=>{
+            this.lastPage=res.last
+            this.nextPage=res.next
+          })
+      },
+      last(){
+        this.$router.push({path: '/newsDetail/'+this.lastPage})
+        this.aid=this.lastPage
+        /*this.change()*/
+      },
+      next(){
+        this.$router.push({path: '/newsDetail/'+this.nextPage})
+        this.aid=this.nextPage
+       /* this.change()*/
+      },
     },
     watch: {
       "$route": function(id){
@@ -178,9 +197,7 @@
           id:this.bqId
         })
           .then((res)=>{
-
             this.caseList = res.data
-
           })
         this.getTip()
       }
@@ -189,6 +206,7 @@
       /* this.getData()*/
       this.getDetail()
       this.getTip()
+      this.change()
     }
   }
 </script>

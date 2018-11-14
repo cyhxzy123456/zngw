@@ -1,8 +1,8 @@
 <template>
     <div>
       <banner-small :banner="banner">
-        <a href="#" class="test" slot="banner-bth-blue">免费试用</a>
-        <a href="#" class="apply" slot="banner-bth-yellow">立即申请</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
       </banner-small>
       <div class="part1 part">
         <div class="wrap">
@@ -73,7 +73,7 @@
                 <p>{{item.txt}}</p>
               </li>
             </ul>
-            <a href="" class="btn">立即咨询</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="btn">立即咨询</a>
           </div>
         </div>
       </div>

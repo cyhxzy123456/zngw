@@ -1,8 +1,8 @@
 <template>
   <div class="content_main">
     <banner-small :banner="banner">
-      <a href="#" class="test" slot="banner-bth-blue">免费试用</a>
-      <a href="#" class="apply" slot="banner-bth-yellow">立即申请</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
     </banner-small>
     <div class="part part1">
       <div class="wrap">
@@ -45,7 +45,7 @@
               资金供应需求；有的企业资金实力雄厚及资金渠道丰富，需要广大的市场空间，紫牛
               软件通过强大的技术团队，构建了配资企业上下游子孙账户系统，为配资企业整合配
               资资金资源，为资金批发企业整合配资企业市场资源，通过子孙账户系统完美对接。</p>
-            <a href="#" class="btn">立即咨询</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="btn">立即咨询</a>
           </div>
         </div>
       </div>

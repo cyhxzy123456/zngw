@@ -77,7 +77,7 @@
             <case-slider :caseSlides="caseList"></case-slider>
 
           </div>
-          <div class="ask"><a href="#">立即咨询</a></div>
+          <div class="ask"><a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank">立即咨询</a></div>
         </div>
        </div>
      <div class="partner">

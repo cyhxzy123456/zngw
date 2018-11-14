@@ -1,7 +1,7 @@
 <template>
   <div class="content_main">
     <banner-small :banner="banner">
-      <a href="#" class="test" slot="banner-bth-blue">联系我们</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">联系我们</a>
     </banner-small>
     <div class="wrap">
       <div class="news-nav">
@@ -31,12 +31,12 @@
           url:require('../static/images/solve/solve-banner.png')
         },
         newsNav:[
-          /* {nav:'疑问解答',id:'solve'},
-           {nav:'最新热点',id:'hot'},
-           {nav:'公司资讯',id:'information'},
-           {nav:'行业知识',id:'trade'},
-           {nav:'运营知识',id:'run'},
-           {nav:'投资方向',id:'invest'}*/
+          {className:'疑问解答',id:'solve'},
+          {className:'最新热点',id:'hot'},
+          {className:'公司资讯',id:'information'},
+          {className:'行业知识',id:'trade'},
+          {className:'运营知识',id:'run'},
+          {className:'投资方向',id:'invest'}
         ],
         data:{
           currentPage: "1",
@@ -54,7 +54,7 @@
         this.newsNav = res.data.slice(0,6)
       })
     },*/
-    methods:{
+   /* methods:{
 
       getData(){
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data)
@@ -68,7 +68,7 @@
     created(){
       this.getData()
 
-    }
+    }*/
   }
 </script>
 

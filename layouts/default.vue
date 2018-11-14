@@ -8,6 +8,10 @@
 <script type="text/ecmascript-6">
   import Footer from '../components/footer/footer.vue'
   import Head from '../components/header/header.vue'
+  process.on('uncaughtException',function(err){
+    console.log(err);
+    console.log(err.stack)
+  })
   export default {
     components:{Footer,Head}
   }

@@ -1,8 +1,8 @@
 <template>
     <div class="content_main">
       <banner-small :banner="banner">
-        <a href="#" class="test" slot="banner-bth-blue">免费试用</a>
-        <a href="#" class="apply" slot="banner-bth-yellow">立即申请</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
       </banner-small>
       <div class="wrap">
         <div class="case-box">
@@ -50,23 +50,22 @@ export default {
             url:require('../static/images/case/case-ban.png')
           },
         navList:[
-          /*{
-            navTxt:'股票配资交易系统',
-            href:'/case/charge'
-          },
-
           {
-            navTxt:'股票点买系统',
-            href:'/case/buy'
+            className:'股票配资交易系统',
+            id:'charge'
           },
           {
-            navTxt:'MOM操盘平台',
-            href:'/case/mom'
+            className:'股票点买系统',
+            id:'buy'
           },
           {
-            navTxt:'股票资管系统',
-            href:'/case/manage'
-          },*/
+            className:'MOM操盘平台',
+            id:'mom'
+          },
+          {
+            className:'股票资管系统',
+            id:'manage'
+          },
         ],
         data: {
           currentPage: "1",

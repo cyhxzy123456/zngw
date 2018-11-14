@@ -37,9 +37,9 @@
         </div>
         <div class="page" v-for="(item,index) in newsDetail" :key="index" >
           <!--  <span @click="prevPage(val)"></span>-->
-          <nuxt-link tag="span" :to="{path:'/newsDetail/'+item.id+1}">上一篇</nuxt-link>
+          <span tag="span"  @click="last()">上一篇</span>
           <nuxt-link tag="span" :to="{path:'/news/'+item.classId}">返回列表</nuxt-link>
-          <span @click="nextPage()">下一篇</span>
+          <span tag="span"  @click="next()">下一篇</span>
 
         </div>
       </div>
@@ -68,6 +68,8 @@
         title: '',
         keyWords:'',
         description:'',
+        lastPage:'',
+        nextPage:''
       }
     },
     head () {
@@ -111,7 +113,7 @@
                 if (arr[i].bqName=='案例推荐')
                   arr.splice(i,1);
             }
-            console.log(arr)
+            /*console.log(arr)*/
             this.information = arr
           })
   },
@@ -139,6 +141,28 @@
             this.recommend = res.data
           })
       },
+      /*上一篇*/
+      change(){
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsDetails',{id:this.aid})
+          .then((res)=>{
+            this.lastPage=res.last
+            this.nextPage=res.next
+            console.log(res)
+
+          })
+      },
+      last(){
+        this.$router.push({path: '/newsDetail/'+this.lastPage})
+        this.aid=this.lastPage
+        this.change()
+      },
+      next(){
+        this.$router.push({path: '/newsDetail/'+this.nextPage})
+        this.aid=this.nextPage
+        this.change()
+      },
+
+
     },
     watch: {
       "$route": function(id){
@@ -157,6 +181,7 @@
         this.getInformation()
         this. getHot()
         this.getRecommend()
+        this.change()
       }
     },
     created(){
@@ -164,6 +189,7 @@
       this.getInformation()
       this. getHot()
       this.getRecommend()
+      this. change()
 
     }
   }
