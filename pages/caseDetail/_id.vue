@@ -54,11 +54,11 @@
 
 <script type="text/ecmascript-6">
   import BannerSmall from '../../components/banner-small.vue'
-  import axios from '../../plugins/axios.js'
-  import NuxtLink from "nuxt/lib/app/components/nuxt-link";
+/*  import axios from '../../plugins/axios.js'*/
+  import qs from 'qs'
+  import axios from 'axios'
   export default {
     components: {
-      NuxtLink,
       BannerSmall},
     data(){
       return{
@@ -136,8 +136,21 @@
         ]
       }
     },
-
+    async asyncData ({ params }) {
+      let { data } = await axios.post('https://apiweb.ziniusoft.com/Main/Api/News',qs.stringify({currentPage: 1, pageSize: 5, pageCount: 0,id:params.id}))
+      /*console.log(params.id);*/
+      return { caseList: data.data}
+    },
     methods:{
+        seo(){
+          for(let i=0;i<this.caseList.length;i++){
+            this.title = this.caseList[i].seoTitle
+            this.keyWords = this.caseList[i].seoKeyWords
+            this.description = this.caseList[i].seoDescription
+            this.caseTitle = this.caseList[i].title
+            this.caseOutline = this.caseList[i].outline
+          }
+        },
       getDetail(){
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
           currentPage: this.currentPage,
@@ -146,14 +159,6 @@
           id:this.aid})
           .then((res)=>{
             this.caseList = res.data
-            for(let i=0;i<this.caseList.length;i++){
-              this.title = this.caseList[i].seoTitle
-              this.keyWords = this.caseList[i].seoKeyWords
-              this.description = this.caseList[i].seoDescription
-              this.caseTitle = this.caseList[i].title
-              this.caseOutline = this.caseList[i].outline
-
-            }
           })
       },
       getTip(){
@@ -167,28 +172,49 @@
 
             })
       },
+
+      last(){
+        this.$router.push({path: '/caseDetail/'+this.nextPage})
+        this.aid=this.nextPage
+        this.change()
+      },
+      next(){
+        this.$router.push({path: '/caseDetail/'+this.lastPage})
+        this.aid=this.lastPage
+        this.change()
+      },
       change(){
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsDetails',{id:this.aid})
           .then((res)=>{
-            this.lastPage=res.last
-            this.nextPage=res.next
+            if(res.last !==""){
+              this.lastPage=res.last
+            }else{
+              return
+            }
+            if(res.next !==""){
+              this.nextPage=res.next
+            }else{
+              return
+            }
           })
-      },
-      last(){
-        this.$router.push({path: '/newsDetail/'+this.lastPage})
-        this.aid=this.lastPage
-        /*this.change()*/
-      },
-      next(){
-        this.$router.push({path: '/newsDetail/'+this.nextPage})
-        this.aid=this.nextPage
-       /* this.change()*/
       },
     },
     watch: {
       "$route": function(id){
         //路由变化会触发
-        this.bqId=this.$route.params.id
+
+        this.bqId=this.$route.params.id;
+
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
+          pageCount: this.pageCount,
+          id:this.aid})
+          .then((res)=>{
+            this.caseList = res.data
+            this.seo()
+          })
+
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
           currentPage: this.currentPage,
           pageSize: this.pageSize,
@@ -197,16 +223,20 @@
           id:this.bqId
         })
           .then((res)=>{
-            this.caseList = res.data
+            this.caseList = res.data;
+            this.seo()
           })
         this.getTip()
+
       }
     },
     created(){
-      /* this.getData()*/
-      this.getDetail()
-      this.getTip()
+      this.seo()
       this.change()
+      /* this.getData()*/
+     /* this.getDetail()*/
+      this.getTip()
+
     }
   }
 </script>

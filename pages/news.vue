@@ -1,7 +1,7 @@
 <template>
   <div class="content_main">
     <banner-small :banner="banner">
-      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">联系我们</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="test" slot="banner-bth-blue">联系我们</a>
     </banner-small>
     <div class="wrap">
       <div class="news-nav">

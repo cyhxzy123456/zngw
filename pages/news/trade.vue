@@ -15,7 +15,7 @@
             currentPage: 1,
             pageSize: 5,
             pageCount: 0,
-            title: '股票_行业知识',
+            title: '股票-行业知识',
             keyWords:'股票知识',
             description:'本栏目为股票行业从业人员、炒股认识提供股票行业知识。',
             classId:'trade'

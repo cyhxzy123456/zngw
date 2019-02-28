@@ -1,8 +1,8 @@
 <template>
     <div>
       <banner-small :banner="banner">
-        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
-        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
       </banner-small>
       <div class="part1 part">
         <div class="wrap">
@@ -73,7 +73,7 @@
                 <p>{{item.txt}}</p>
               </li>
             </ul>
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="btn">立即咨询</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="btn">立即咨询</a>
           </div>
         </div>
       </div>
@@ -238,13 +238,13 @@
 }
   .part2{border-bottom: 1px solid #eee;
   .inner{overflow: hidden;height: 260px}
-    li{float:left;width:30%;height:256px;position: relative;margin:0 30px 30px 5px;box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
+    li{float:left;width:31.2%;height:256px;position: relative;margin:0 30px 30px 5px;box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
       img{display: block;width:100%;height:100%;}
       span{position: absolute;bottom: 0;width:100%;height:32px;;line-height: 32px;color:#fff;text-align: center;background: rgba(0,0,0,0.6)}
     }
   }
   .part3{
-    li{padding:30px 0;margin-right:3.75%;border:1px solid #eee;float:left;width:17%;text-align: center}
+    li{padding:30px 0;margin-right:3.75%;border:1px solid #eee;float:left;width:16.8%;text-align: center}
   }
   .part4{background: #eee;
       ul{overflow: hidden}

@@ -49,7 +49,7 @@
             src: require('../../static/images/index/case_zblf.png')
           },
         ],
-        title:"MOM操盘平台_MOM操盘软件开发_紫牛软件",
+        title:"MOM操盘平台-MOM操盘软件开发-紫牛软件",
         keyWords:"MOM操盘平台,MOM操盘软件",
         description:"紫牛MOM操盘平台栏目，主要展示了紫牛软件所开发的MOM操盘软件产品的优势、案例、券商、平台版本、架构环境等。"
       }

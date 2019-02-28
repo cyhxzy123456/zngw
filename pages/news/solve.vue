@@ -15,7 +15,7 @@
             currentPage: 1,
             pageSize: 5,
             pageCount: 0,
-            title: '配资系统疑问解答_问题解决',
+            title: '配资系统疑问解答-问题解决',
             keyWords:'配资系统疑问解答',
             description:'股票配资系统疑问解答栏目专注股票配资系统使用过程中出现问题的解答。',
             classId:'solve'

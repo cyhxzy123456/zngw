@@ -15,7 +15,7 @@
             currentPage: 1,
             pageSize: 5,
             pageCount: 0,
-            title: '紫牛软件_公司资讯',
+            title: '紫牛软件-公司资讯',
             keyWords:'紫牛资讯',
             description:'成都紫牛软件公司动态，最新资讯。',
             classId:'information'

@@ -22,7 +22,7 @@
 
            <div style="display: inline-block">
              <p>
-               <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank"><img :src="qq_kf" alt="QQ咨询" class="qq-img"></a>
+               <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank"><img :src="qq_kf" alt="QQ咨询" class="qq-img"></a>
              </p>
              <span>QQ咨询</span>
            </div>
@@ -77,7 +77,7 @@
             <case-slider :caseSlides="caseList"></case-slider>
 
           </div>
-          <div class="ask"><a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank">立即咨询</a></div>
+          <div class="ask"><a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank">立即咨询</a></div>
         </div>
        </div>
      <div class="partner">
@@ -121,22 +121,26 @@
           </div>
         </div>
       </div>
+       <Footer :linkList="linkList"></Footer>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-
+  import Footer from '../components/footer/footer.vue'
 import Banner from '../components/banner-slider.vue'
 import CaseSlider from '../components/case-slider.vue'
-import axios from '../plugins/axios'
+/*import axios from '../plugins/axios'*/
 import IndexNews from '../components/indexNews.vue'
+  import qs from 'qs'
+  import axios from 'axios'
 export default {
-  components: { Banner,CaseSlider,IndexNews},
+    layout:'index',
+  components: { Banner,CaseSlider,IndexNews,Footer},
   data () {
     return {
       head () {
         return {
-          title: "股票配资系统_配资软件开发【紫牛软件】互联网配资交易软件开发公司",
+          title: "股票配资软件系统开发公司-「紫牛软件」提供配资软件系统解决方案",
           meta: [
             { hid: 'keyWords',name:'keyWords', content:"配资系统,配资软件,股票配资系统,股票配资软件,股票配资软件开发,股票配资系统开发"},
             { hid: 'description',name:'description', content:"成都紫牛软件致力于为证券交易、运营、金融平台提供互联网解决方案，主要提供股票配资系统开发、股票配资软件等金融类软件开发服务，为金融企业发展赋能。"}
@@ -179,13 +183,13 @@ export default {
       caseList: [
         [
           {
-            txt: '析牛策略 http://www.ppxrv.com',
+            txt: '析牛策略配资软件 http://www.ppxrv.com',
             src: require('static/images/index/case_xncl.png'),
             href:'/caseDetail/181024153006900'
           },
 
           {
-            txt: '牛金所 http://www.njs168.net',
+            txt: '牛金所配资系统 http://www.njs168.net',
             src:require('../static/images/index/case_njs.png'),
             href:'/caseDetail/181024153006900'
 
@@ -195,22 +199,22 @@ export default {
         //charge
 
        [ {
-         txt: '牛管家 https://www.ngj518.com/',
+         txt: '牛管家配资软件 https://www.ngj518.com/',
          src: require('../static/images/index/case_ngj.png'),
          href:'/caseDetail/181024153006900'
        },
          {
-           txt: '涨声操盘 http://www.zhangsheng666.com',
+           txt: '涨声操盘配资系统 http://www.zhangsheng666.com',
            src: require('../static/images/index/case_zscp.png'),
            href:'/caseDetail/181024153006900'
          }],
         [{
-          txt: '子牛在线 http://www.zn1788.com',
+          txt: '子牛在线配资软件 http://www.zn1788.com',
           src: require('../static/images/index/case_znzx.png'),
           href:'/caseDetail/181024153006900'
         },
           {
-            txt: '股昇网 https://www.gushengwang.com/',
+            txt: '股昇网配资系统 https://www.gushengwang.com/',
             src: require('../static/images/index/case_gsw.png'),
             href:'/caseDetail/181024153006900'
           }],
@@ -403,9 +407,15 @@ export default {
       currentPage: 1,
       pageSize: 5,
       pageCount: 0,
-      classId:""
+      classId:"",
+      linkList:[],
     }
   },
+   async asyncData ({ params }) {
+   let { data } = await axios.post('https://apiweb.ziniusoft.com/Main/Api/FriendshipLink',qs.stringify({currentPage: 1, pageSize: 1000, pageCount: 0}))
+   /*console.log(data.data);*/
+   return { linkList: data.data}
+   },
   methods: {
     getData11(){
       /* console.log(this.id)*/
@@ -489,18 +499,16 @@ export default {
       this.getData15()
       this.getData16()
     }
-
-
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .service{background:url("../static/images/index/service_bg.png") no-repeat top left;overflow:hidden;margin-top:30px;background-size: 58% 100%;}
-  .service .fr p{text-align: center;float:left;margin-left:30px;box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.15);  width: 198px;  height: 198px;  padding: 15px;  margin-top: 5px;
-  margin-bottom: 12px;border-radius: 20px}
-  .service .fr p img{display: block;max-width: 165px;max-height: 165px;margin-bottom: 8px;    margin: 0 auto;}
+  .service .fr p{text-align: center;float:left;margin-left:30px;box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.15);  width: 195px;  height: 195px;  padding: 15px;  margin-top: 5px;
+  margin-bottom: 12px;border-radius: 20px;box-sizing: border-box}
+  .service .fr p img{display: block;max-width: 160px;max-height: 160px;margin-bottom: 8px;    margin: 0 auto;    padding-top: 3px;}
   .service .fr p img.qq-img{padding-top:10px}
-  .service .fr span{text-align: center;display: block}
+  .service .fr span{text-align: center;display: block;padding-left: 27px;}
   .service .fl{padding:55px 0;position: relative;width:55%}
   .service .fl .fw{    font-weight: bold;color:#4c9bd6;font-size: 24px;padding-bottom: 25px;}
   .service .fl .fwp{    font-weight: bold;color:#4c9bd6;font-size: 20px;width: 290px;  line-height: 30px;}

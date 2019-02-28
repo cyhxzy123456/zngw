@@ -15,7 +15,7 @@ ul, ol ,li{ list-style: none; }
 .fl{ float: left; }
 .fr{float: right;}
 .content_main{padding-top:85px}
-.wrap{width:1200px;margin:0 auto;  }
+.wrap{width:1200px;margin:0 auto!important;  }
 /*.page-enter-active, .page-leave-active {
   transition: opacity .5s;
 }

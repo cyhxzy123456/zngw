@@ -1,6 +1,5 @@
 <template>
-  <div >
-
+  <div>
     <div class="wrap">
       <div class="detail-cont">
         <div class="inner">
@@ -24,7 +23,7 @@
                   <h3 slot="head">最新资讯</h3>
                 </hot-list>
               <li class="box">
-                <hot-list :hotList="hot">
+                <hot-list :hotList="hotList">
                   <h3 slot="head">热门知识</h3>
                 </hot-list>
               <li class="box">
@@ -51,14 +50,16 @@
 <script type="text/ecmascript-6">
   /*  import BannerSmall from '../../../components/banner-small.vue'*/
   import HotList from '../../components/hot-list.vue'
-  import axios from '../../plugins/axios'
+/*  import axios from '../../plugins/axios'*/
+  import qs from 'qs'
+  import axios from 'axios'
   export default {
     components:{HotList},
     data(){
       return{
         newsDetail:[],
         information:[],
-        hot:[],
+        hotList:[],
         recommend:[],
         currentPage: 1,
         pageSize: 5,
@@ -81,10 +82,38 @@
         ]
       }
     },
+    /*async asyncData ({ params }) {
+      let [request1Data, request2Data, request3Data] = await Promise.all([
+        axios.post('https://apiweb.ziniusoft.com/Main/Api/News',qs.stringify({currentPage: 1, pageSize: 5, pageCount: 0,id:params.id})),
+        axios.post('https://apiweb.ziniusoft.com/Main/Api/News',qs.stringify({currentPage: 1, pageSize: 5, pageCount: 0,bqName:'相关推荐'})),
+        axios.post('https://apiweb.ziniusoft.com/Main/Api/News',qs.stringify({currentPage: 1, pageSize: 5, pageCount: 0,bqName:'热门知识'})),
+      ])
+      console.log(request1Data.data.data);
+      return {
+        newsDetail: request1Data.data,
+        recommend: request2Data.data,
+        hotList: request3Data.data
+      }
+    },*/
+
+    /*服务器端渲染获取详情页内容*/
+    async asyncData ({ params }) {
+      let { data } = await axios.post('https://apiweb.ziniusoft.com/Main/Api/News',qs.stringify({currentPage: 1, pageSize: 5, pageCount: 0,id:params.id}))
+      /*console.log(params.id);*/
+      return { newsDetail: data.data}
+    },
+
     methods:{
+        seo(){
+          for(var i=0;i<this.newsDetail.length;i++){
+            this.title = this.newsDetail[i].seoTitle
+            this.keyWords = this.newsDetail[i].seoKeyWords
+            this.description = this.newsDetail[i].seoDescription
+          }
+        },
       /*正文*/
-      getData(){
-       /* console.log(this.id)*/
+     /* getData(){
+       /!* console.log(this.id)*!/
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
           currentPage: this.currentPage,
           pageSize: this.pageSize,
@@ -99,7 +128,7 @@
               this.description = this.newsDetail[i].seoDescription
             }
           })
-      },
+      },*/
       /*最新资讯*/
       getInformation(){
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News', {
@@ -126,7 +155,7 @@
           bqName:'热门知识'
         })
           .then((res)=>{
-            this.hot = res.data
+            this.hotList = res.data
           })
       },
       /*相关推荐*/
@@ -142,27 +171,32 @@
           })
       },
       /*上一篇*/
-      change(){
-        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsDetails',{id:this.aid})
-          .then((res)=>{
-            this.lastPage=res.last
-            this.nextPage=res.next
-            console.log(res)
 
-          })
-      },
       last(){
-        this.$router.push({path: '/newsDetail/'+this.lastPage})
-        this.aid=this.lastPage
+        this.$router.push({path: '/newsDetail/'+this.nextPage})
+          this.aid=this.nextPage
         this.change()
       },
       next(){
-        this.$router.push({path: '/newsDetail/'+this.nextPage})
-        this.aid=this.nextPage
+        this.$router.push({path: '/newsDetail/'+this.lastPage})
+          this.aid=this.lastPage
         this.change()
       },
-
-
+      change(){
+        this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsDetails',{id:this.aid})
+          .then((res)=>{
+            if(res.last ===""){
+              this.lastPage=this.aid
+            }else{
+              this.lastPage=res.last
+            }
+            if(res.next ===""){
+              this.nextPage=this.aid
+            }else{
+              this.nextPage=res.next
+            }
+          })
+      },
     },
     watch: {
       "$route": function(id){
@@ -177,15 +211,19 @@
         })
           .then((res)=>{
             this.newsDetail = res.data
+            this.seo()
+           /* this.change()*/
           })
+
         this.getInformation()
         this. getHot()
         this.getRecommend()
-        this.change()
+
       }
     },
     created(){
-      this.getData()
+      this.seo()
+     /* this.getData()*/
       this.getInformation()
       this. getHot()
       this.getRecommend()

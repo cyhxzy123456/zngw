@@ -6,6 +6,10 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
+    <content url="file://F:/vue/dail" />
+    <content url="file://F:/vue/man" />
+    <content url="file://F:/vue/taobaox" />
+    <content url="file://F:/vue/taobaoxu" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

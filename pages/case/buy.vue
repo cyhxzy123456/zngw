@@ -11,7 +11,7 @@
       data(){
           return{
             classId:'buy',
-            title: '股票点买系统案例_ 紫牛软件',
+            title: '股票点买系统案例-紫牛软件',
             keyWords:'股票点买系统案例',
             description:'紫牛软件股票点买系统案例聚合页，主要集中展示股票点买系统案例，点击查看详情。',
           }

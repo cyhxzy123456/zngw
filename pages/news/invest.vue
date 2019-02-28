@@ -10,7 +10,7 @@
       components:{newsList},
       data(){
           return{
-            title: '金融_投资方向',
+            title: '金融-投资方向',
             keyWords:'金融投资方向',
             description:'本栏目为金融界人士从业人士提供金融投资方向，金融最新资讯。',
             classId:'invest'

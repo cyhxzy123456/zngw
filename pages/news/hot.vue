@@ -15,7 +15,7 @@
             currentPage: 1,
             pageSize: 5,
             pageCount: 0,
-            title: '金融圈_最新热点',
+            title: '金融圈-最新热点',
             keyWords:'金融最新热点',
             description:'本栏目为金融从业人员、金融提供金融圈发生大事，最新热点。',
             classId:'hot'

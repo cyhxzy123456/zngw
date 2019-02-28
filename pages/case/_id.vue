@@ -28,25 +28,20 @@
 
 <script type="text/ecmascript-6">
   export default {
-    props:{
-      classId:{
-        type: String
-      }
-    },
-    data(){
-      return{
-        caseList:[],
-        /*classId: this.$route.params.id,*/
-        pageSizesList: [6, 10, 20, 30, 50],
-        currentPage: 1,
-        pageSize: 6,
-        pageCount: 0,
+   data(){
+       return{
+         caseList:[],
+         classId: this.$route.params.id,
+         pageSizesList: [5, 10, 20, 30, 50],
+         currentPage: 1,
+         pageSize: 5,
+         pageCount: 0,
 
-      }
-    },
+       }
+   },
     methods:{
       getAndDraw(){
-
+        console.log(this.id)
         this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/News',{
           currentPage: this.currentPage,
           pageSize: this.pageSize,
@@ -63,25 +58,32 @@
             }
 
           })
-      },
-      handleSizeChange(val) {
-        this.pageSize=val;//获取page-sizes里的每页显示几条数据的值，赋给我们自定义的每页显示数量的变量pageNum
-        this.getAndDraw();//展示页面信息
-      },
-      //改变页码
-      handleCurrentChange(val) {
-        this.currentPage = val;
-        this.getAndDraw();//确定当前页面后刷新页面
-      },
+      }
     },
+    handleSizeChange(val) {
 
-   /* watch: {
+      this.pageSize=val;//获取page-sizes里的每页显示几条数据的值，赋给我们自定义的每页显示数量的变量pageNum
+
+      this.getAndDraw();//展示页面信息
+
+
+    },
+    //改变页码
+    handleCurrentChange(val) {
+
+      this.currentPage = val;
+
+      this.getAndDraw();//确定当前页面后刷新页面
+
+
+    },
+    watch: {
       "$route": function(){
         //路由变化会触发
         this.classId=this.$route.params.id,
-          this.getAndDraw()
+        this.getAndDraw()
       }
-    },*/
+    },
     created(){
       this.getAndDraw()
     }

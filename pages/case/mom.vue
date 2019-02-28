@@ -11,7 +11,7 @@
       data(){
           return{
             classId:'mom',
-            title: 'MOM操盘平台案例_紫牛软件',
+            title: 'MOM操盘平台案例-紫牛软件',
             keyWords:'MOM操盘平台案例',
             description:'紫牛软件MOM操盘平台案例聚合页，主要集中展示MOM操盘平台案例，点击查看详情。',
           }

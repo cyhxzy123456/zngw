@@ -11,7 +11,7 @@
       data(){
           return{
             classId:'charge',
-            title: '股票配资交易系统案例_紫牛软件',
+            title: '股票配资交易系统案例-紫牛软件',
             keyWords:'股票配资系统案例',
             description:'紫牛软件股票配资系统案例聚合页，主要集中展示股票配资系统案例，点击查看详情。',
           }

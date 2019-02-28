@@ -1,8 +1,8 @@
 <template>
   <div class="content_main">
     <banner-small :banner="banner">
-      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
-      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" rel="nofollow" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" rel="nofollow" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
     </banner-small>
     <div class=" part" v-for="(item,index) in solveList" :key="index" :class="[{grey:(index+1)%2===0},{end:(index+1)%4===0}]" >
       <div class="wrap">
@@ -84,7 +84,7 @@
               href:'/solution/mom'
             }
           ],
-          title:"股票配资系统_股票配资行业解决方案_紫牛软件",
+          title:"股票配资系统-股票配资行业解决方案-紫牛软件",
           keyWords:"股票配资系统，股票配资解决方案",
           description:"紫牛软件专注股票配资系统开发，为开展股票配资业务的金融企业提供配资解决方案，帮助企业更好的开展业务。"
         }

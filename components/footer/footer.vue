@@ -24,7 +24,7 @@
             <li>
               <h3>服务热线</h3>
               <b>028-83579300</b>
-              <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank"><img :src="qq_kf" alt="qq" class="qq"></a>
+              <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank"><img :src="qq_kf" alt="qq" class="qq"></a>
             </li>
             <li class="code">
               <img :src="contactImg" alt="">
@@ -37,9 +37,10 @@
           </ul>
         </div>
       </div>
-      <div class="link">
+      <div class="frendLink">
         <div class="wrap">
-          <span>友情链接 : </span><span v-for="(item,index) in link" :key="index"><a :href="item.link">{{item.title}}</a></span>
+         <span><a href="http://www.aabbshop.com/">{{title}}</a></span>
+          <span>友情链接 : </span><span v-for="(item,index) in linkList" :key="index"><a :href="item.link">{{item.title}}</a></span>
         </div>
       </div>
     </div>
@@ -47,7 +48,13 @@
 
 <script type="text/ecmascript-6">
   import axios from '../../plugins/axios'
+
 export default {
+  props:{
+    linkList:{
+      type:Array
+    }
+  },
   name: 'Footer',
   data () {
     return {
@@ -100,7 +107,7 @@ export default {
       currentPage: 1,
       pageSize: 5,
       pageCount: 0,
-      link:[],
+      title:'',
       contactImg:require('../../static/images/about/contact.jpg'),
       gzhImg:require('../../static/images/about/gzh.jpg')
     }
@@ -115,7 +122,7 @@ export default {
           pageCount: 0,})
           .then((res)=>{
             this.link = res.data
-            /*console.log(res.data)*/
+            console.log(this.link)
           })
           .catch((err)=>{
             console.log(msg)
@@ -123,8 +130,10 @@ export default {
     }
   },
   created(){
-      this.getLink()
-  }
+     /* this.getLink()*/
+    /*console.log(this.linkList)*/
+   /* console.log(this.link)*/
+  },
 }
 </script>
 
@@ -149,7 +158,7 @@ export default {
     b{font-size:25px;color:#fff;padding:0 0 18px;display: block}
     .qq{width:198px}
   }
-  .link{margin-top:10px;border-top:1px solid #fff;
+  .frendLink{margin-top:10px;border-top:1px solid #fff;
     a,span{color:#959595;font-size: 12px;padding-right: 5px;}
   }
   }

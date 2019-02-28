@@ -1,8 +1,8 @@
 <template>
     <div class="content_main">
       <banner-small :banner="banner">
-        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
-        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="test" slot="banner-bth-blue">免费试用</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="apply" slot="banner-bth-yellow">立即申请</a>
       </banner-small>
       <div class="wrap">
         <div class="case-box">
@@ -79,7 +79,7 @@ export default {
     getData(){
       this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/NewsClass',this.data)
         .then((res)=>{
-          console.log(res.data)
+          /*console.log(res.data)*/
           this.navList = res.data.slice(-4)
         })
     },

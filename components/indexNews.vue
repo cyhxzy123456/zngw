@@ -5,7 +5,7 @@
           <img :src="newsImg">
           <h3 slot="title">{{name}}</h3>
           <div class="text-box">
-            <nuxt-link  tag="p" v-for="(news,index) in indexList" :key="index" :to="'/newsDetail/'+news.id"><span class="last-new fl">{{news.outline}}</span ><span class="date fr">{{news.addTime}}</span></nuxt-link>
+            <nuxt-link  tag="p" v-for="(news,index) in indexList" :key="index" :to="'/newsDetail/'+news.id"><span class="last-new fl">{{news.title}}</span ><span class="date fr">{{news.addTime}}</span></nuxt-link>
           </div>
         </div>
       </div>

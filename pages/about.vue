@@ -1,10 +1,11 @@
 <template>
     <div class="content_main">
       <banner-small :banner="banner">
-        <a href="http://wpa.qq.com/msgrd?v=3&uin=576847565&site=qq&menu=yes" target="_blank" class="test" slot="banner-bth-blue">联系我们</a>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=3157441071&site=qq&menu=yes" rel="nofollow" target="_blank" class="test" slot="banner-bth-blue">联系我们</a>
       </banner-small>
       <div class="present part">
         <div class="wrap">
+
           <tit>
             <h3 slot="h3">紫牛介绍</h3>
             <p slot="p">Present</p>
@@ -67,23 +68,25 @@
               <div class="code">
                 <img :src="contactImg" alt="" class="fl" >
                 <p class="fr">
-                  <span>QQ:576847565</span>
-                  <span>电话：028-8357-9300</span>
+                  <span>QQ:3157441071</span>
+                  <span>电话：028-83579300</span>
                 </p>
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
+    <!-- <Footer :linkList="linkList"></Footer>-->
     </div>
 </template>
 <script type="text/ecmascript-6">
   import BannerSmall from '../components/banner-small.vue'
   import Tit from '../components/tit.vue'
+/*  import axios from '../plugins/axios'*/
+
+  import Footer from '../components/footer/footer.vue'
     export default {
-      components:{Tit,BannerSmall},
+      components:{Tit,BannerSmall,Footer},
         data () {
             return {
               busyImg:require('../static/images/about/busy-img.png'),
@@ -123,12 +126,33 @@
                 url:require('../static/images/about/about-banner.png')
               },
               contactImg:require('../static/images/about/contact.jpg'),
-              title:"关于紫牛_紫牛软件",
+              title:"关于紫牛-紫牛软件",
               keyWords:"紫牛软件介绍",
-              description:"紫牛软件成立于2010年，为金融企业提供股票配资系统开发服务，立志做中国领先的股票配资系统服务商。"
-
+              description:"紫牛软件成立于2010年，为金融企业提供股票配资系统开发服务，立志做中国领先的股票配资系统服务商。",
+              linkList:[],
+              page:this.$store.state.page
             }
+
         },
+     /* async asyncData ({ params }) {
+        let { data } = await axios.post('https://apiweb.ziniusoft.com/Main/Api/FriendshipLink',qs.stringify({currentPage: 1, pageSize: 5, pageCount: 0}))
+        console.log(data.data);
+        return { linkList: data.data}
+      },*/
+      methods: {
+        getLink(){
+          this.$axios.post('https://apiweb.ziniusoft.com/Main/Api/FriendshipLink',{currentPage: 1,
+            pageSize: 5,
+            pageCount: 0,})
+            .then((res)=>{
+              this.linkList = res.data
+              /* console.log(res.data)*/
+            })
+            .catch((err)=>{
+              console.log(msg)
+            })
+        }
+      },
       head () {
         return {
           title: this.title,
@@ -138,6 +162,11 @@
           ]
         }
       },
+      created(){
+          /*console.log(this.linkList);*/
+          /*this. getLink()*/
+
+      }
     }
 </script>
 

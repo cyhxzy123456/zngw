@@ -15,7 +15,7 @@
             currentPage: 1,
             pageSize: 5,
             pageCount: 0,
-            title: '股票配资_运营知识',
+            title: '股票配资-运营知识',
             keyWords:'股票配资系统运营方法',
             description:'本栏目为股票配资运营人员提供股票配资软件运营方法，运营知识。',
             classId:'run'
