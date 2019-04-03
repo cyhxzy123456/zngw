@@ -29,23 +29,23 @@
           </div>
         </div>
       </div>
-      <div class="part2 part">
-        <div class="wrap">
+      <!--<div class="part2 part">-->
+        <!--<div class="wrap">-->
 
-          <div class="tit">
-            <h3 >经典案例</h3>
-            <p >classical case</p>
-          </div>
-          <div class="inner">
-            <ul>
-              <li v-for="(img,index) in imgList"  :key="index" :class="{last:(index+1)%3==0}">
-                <img :src="img.src" alt="">
-                <span>{{img.txt}}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+          <!--<div class="tit">-->
+            <!--<h3 >经典案例</h3>-->
+            <!--<p >classical case</p>-->
+          <!--</div>-->
+          <!--<div class="inner">-->
+            <!--<ul>-->
+              <!--<li v-for="(img,index) in imgList"  :key="index" :class="{last:(index+1)%3==0}">-->
+                <!--<img :src="img.src" alt="">-->
+                <!--<span>{{img.txt}}</span>-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
       <div class="part3 part">
         <div class="wrap">
           <div class="tit">

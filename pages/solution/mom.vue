@@ -21,34 +21,34 @@
         headImg:{
           src: require('../../static/images/solve/solve_04.png')
         },
-        imgList:[
-          //mom
-          {
-            txt: '赤禹操盘 www.cyjr178.com',
-            src: require('../../static/images/index/case_cycp.png')
-          },
-          {
-            txt: '亿富资本&nbsp;&nbsp;&nbsp;&nbsp;https://www.lingmaocp.com',
-            src: require('../../static/images/index/case_yfzb.png')
-          },
-          {
-            txt: '大丰收 www.dfscp98.com',
-            src: require('../../static/images/index/case_dfs.png')
-          },
-          {
-            txt: '淘财网 www.taocai360.com',
-            src:require( '../../static/images/index/case_tcw.png')
-          },
-          {
-            txt: '鑫配网 www.ryw168.com/',
-            src: require('../../static/images/index/case_xpw.png')
-
-          },
-          {
-            txt: '资本立方 www.zblf178.com',
-            src: require('../../static/images/index/case_zblf.png')
-          },
-        ],
+//        imgList:[
+//          //mom
+//          {
+//            txt: '赤禹操盘 www.cyjr178.com',
+//            src: require('../../static/images/index/case_cycp.png')
+//          },
+//          {
+//            txt: '亿富资本&nbsp;&nbsp;&nbsp;&nbsp;https://www.lingmaocp.com',
+//            src: require('../../static/images/index/case_yfzb.png')
+//          },
+//          {
+//            txt: '大丰收 www.dfscp98.com',
+//            src: require('../../static/images/index/case_dfs.png')
+//          },
+//          {
+//            txt: '淘财网 www.taocai360.com',
+//            src:require( '../../static/images/index/case_tcw.png')
+//          },
+//          {
+//            txt: '鑫配网 www.ryw168.com/',
+//            src: require('../../static/images/index/case_xpw.png')
+//
+//          },
+//          {
+//            txt: '资本立方 www.zblf178.com',
+//            src: require('../../static/images/index/case_zblf.png')
+//          },
+//        ],
         title:"MOM操盘平台-MOM操盘软件开发-紫牛软件",
         keyWords:"MOM操盘平台,MOM操盘软件",
         description:"紫牛MOM操盘平台栏目，主要展示了紫牛软件所开发的MOM操盘软件产品的优势、案例、券商、平台版本、架构环境等。"

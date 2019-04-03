@@ -22,31 +22,31 @@
         headImg:{
           src: require('../../static/images/solve/solve_03.png')
         },
-        imgList:[
-          //点买
-
-          {
-            txt: '天添赢 www.tiantianying188.com',
-            src: require('../../static/images/index/case_tty.png')
-          },
-
-          {
-            txt: '云跟投 www.ygt999.com',
-            src: require('../../static/images/index/case_ygt.png')
-          },
-          {
-            txt: '博牛宝 www.bnb18.com/',
-            src: require('../../static/images/index/case_bnb.png')
-          },
-          {
-            txt: '谋略天下 www.winwinwin168.com/',
-            src: require('../../static/images/index/case_mltx.png')
-          },
-          {
-            txt: '钱生钱 www.qsq98.com',
-            src:require( '../../static/images/index/case_qsq.png')
-          },
-        ],
+//        imgList:[
+//          //点买
+//
+//          {
+//            txt: '天添赢 www.tiantianying188.com',
+//            src: require('../../static/images/index/case_tty.png')
+//          },
+//
+//          {
+//            txt: '云跟投 www.ygt999.com',
+//            src: require('../../static/images/index/case_ygt.png')
+//          },
+//          {
+//            txt: '博牛宝 www.bnb18.com/',
+//            src: require('../../static/images/index/case_bnb.png')
+//          },
+//          {
+//            txt: '谋略天下 www.winwinwin168.com/',
+//            src: require('../../static/images/index/case_mltx.png')
+//          },
+//          {
+//            txt: '钱生钱 www.qsq98.com',
+//            src:require( '../../static/images/index/case_qsq.png')
+//          },
+//        ],
         title:"股票点买系统-股票点买软件开发-紫牛软件",
         keyWords:"股票点买系统，股票点买软件",
         description:"紫牛股票点买系统栏目，主要展示了紫牛软件所开发的股票点买软件产品的优势、案例、券商、平台版本、架构环境等。"

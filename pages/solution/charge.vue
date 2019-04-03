@@ -24,34 +24,34 @@
         headImg:{
             src:require( '../../static/images/solve/solve_01.png')
         },
-        imgList:[
-          //charge
-
-          {
-            txt: '牛管家 www.ngj518.com',
-            src: require('../../static/images/index/case_ngj.png')
-          },
-          {
-            txt: '涨声操盘 www.zhangsheng666.com',
-            src: require('../../static/images/index/case_zscp.png')
-          },
-          {
-            txt: '子牛在线 www.zn1788.com',
-            src: require('../../static/images/index/case_znzx.png')
-          },
-          {
-            txt: '股昇网 www.gushengwang.com/',
-            src: require('../../static/images/index/case_gsw.png')
-          },
-          {
-            txt: '股临天下 https://www.gltx1688.com/',
-            src:require( '../../static/images/index/case_gltx.png')
-          },
-          {
-            txt: '交易秀 www.jiaoyixiu.com/',
-            src:require( '../../static/images/index/case_jyx.png')
-          },
-        ],
+//        imgList:[
+//          //charge
+//
+//          {
+//            txt: '牛管家 www.ngj518.com',
+//            src: require('../../static/images/index/case_ngj.png')
+//          },
+//          {
+//            txt: '涨声操盘 www.zhangsheng666.com',
+//            src: require('../../static/images/index/case_zscp.png')
+//          },
+//          {
+//            txt: '子牛在线 www.zn1788.com',
+//            src: require('../../static/images/index/case_znzx.png')
+//          },
+//          {
+//            txt: '股昇网 www.gushengwang.com/',
+//            src: require('../../static/images/index/case_gsw.png')
+//          },
+//          {
+//            txt: '股临天下 https://www.gltx1688.com/',
+//            src:require( '../../static/images/index/case_gltx.png')
+//          },
+//          {
+//            txt: '交易秀 www.jiaoyixiu.com/',
+//            src:require( '../../static/images/index/case_jyx.png')
+//          },
+//        ],
         title:"股票配资系统-股票配资交易软件开发-紫牛软件",
         keyWords:"股票配资系统，股票配资软件",
         description:"紫牛股票配资系统栏目，主要展示了紫牛软件所开发的股票配资系统产品的优势、案例、券商、平台版本、架构环境等。"
@@ -71,5 +71,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-
+ .part2{display:none}
 </style>
